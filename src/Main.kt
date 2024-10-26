@@ -20,15 +20,20 @@ fun main() {
         }
     }
     println("Двумерный массив:")
-    for (row in array) {
-        println(row.joinToString(" "))
+    for (i in 0 until m) {
+        for (j in 0 until n) {
+            print("${array[i][j]} ")
+        }
+        println()
     }
     // Подсчет цифр
-    val а = mutableSetOf<Char>()
-    for (row in array) {
-        for (number in row) {
-            а.addAll(number.toString().toCharArray().toSet())
+    val a = mutableSetOf<Char>()
+    for (i in 0 until m) {
+        for (j in 0 until n) {
+            val numberString = array[i][j].toString()
+            for (digit in numberString) {
+                a.add(digit) }
         }
     }
-    println("В массиве использовано ${а.size} различных цифр")
+        println("В массиве использовано ${a.size} различных цифр")
 }
